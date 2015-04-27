@@ -1,5 +1,5 @@
 "require github://ramda/ramda/dist/ramda.js"
 
-function reDomain () {
-  return false
-}
+var reDomain = R.curry(function (l, h, nl, nh, v) {
+  return (v - l) / (l - h) * (nl - nh) + nl
+})
