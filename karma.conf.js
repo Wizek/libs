@@ -18,8 +18,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/jasmine-given/dist/jasmine-given.js',
-      'http://localhost:3333/load?packages=http://localhost:3334/reDomain.js',
-      '*.js',
+      'http://localhost:3333/load?packages=libs/src/',
+      'src/*.js',
       '*Spec.coffee',
     ],
 
