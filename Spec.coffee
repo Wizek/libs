@@ -21,3 +21,12 @@ describe 'reDomain', ->
 
   describe 'curried', ->
     Then  -> (reDomain 0, 2)(0, 4)(1) == 2
+
+describe 'jsToHs', ->
+  describe 'value', ->
+    Then  -> expect(jsToHs "a").toBe "a"
+    Then  -> expect(jsToHs "f(a)").toBe "(f a)"
+    Then  -> expect(jsToHs "function (a) { return a }").toBe "(\\a -> a)"
+    # Then  -> expect(jsToHs "function () { return a }").toBe "(\\a -> a)"
+    Then  -> expect(jsToHs "function (a) { return fn(a, fn(b)) }").toBe "(\\a -> (fn a (fn b)))"
+    Then  -> expect(jsToHs "a || b").toBe "(or a b)"
